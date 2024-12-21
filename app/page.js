@@ -5,7 +5,8 @@ import { HeroSection, Model, NavBar } from ".";
 export default function Home() {
   return (
     <div className={styles.page}>
-      <NavBar/>
+      <NavBar />
+      <HeroSection accounts= "hey" tokenData= "DATA"/>
     </div>
   );
 }
