@@ -26,7 +26,7 @@ const NavBar = () => {
   //USESTATE
   const [openModel, setOpenModel] = useState(false);
   const [openTokenBox, setOpenTokenBox] = useState(false);
-  const [connectWallet, setConnectWallet] = useState("");
+  const [account, setAccount] = useState(false);
   return (
     <div className={Style.NavBar}>
       <div className={Style.NavBar_Box}>
@@ -56,15 +56,15 @@ const NavBar = () => {
         <div className={Style.NavBar_Box_right}>
           <div className={Style.NavBar_Box_right_box}>
             <div className={Style.NavBar_Box_right_box_img}>
-              <Image src={images.ether} alt='network' height={30} width={30}/>
+              <Image src={images.ether} alt="network" height={30} width={30} />
             </div>
-            <p>
-              Network Name
-            </p>
+            <p>Network Name</p>
           </div>
-          <button onClick={() => setOpenModel(true)}>
-            Address
-          </button>
+          {account ? (
+            <button onClick={() => setOpenModel(true)}>Connect</button>
+          ) : (
+            <button onClick={() => setOpenTokenBox(true)}>0xaabbccfjahsgdawvasda</button>
+          )}
           {openModel && (
             <Model setOpenModel={setOpenModel} connectWallet="Connect" />
           )}
